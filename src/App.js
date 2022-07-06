@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useEffect, useState } from 'react';
+import './App.scss';
+import Header from './components/Header/Header'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Homepage from './pages/home-page/Homepage';
+import Basket from './pages/Basket/Basket'
+import { Appcontext } from './Appcontext';
 function App() {
+  const [jso, setJso] = useState([])
+  useEffect(() => {
+    async function fetchData() {
+      const resp = await fetch('http://localhost:3000/db.json')
+      const data = await resp.json()
+      setJso(data)
+    }
+    fetchData()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+     <Appcontext.Provider value={{jso
+    }}>
+     <div className="App">
+        <Header />
+        <Routes>
+          <Route path='/' element={<Homepage/>}  />
+          <Route path='Basket/' element={<Basket />} />
+        </Routes>
+      </div>
+     </Appcontext.Provider>
+    </BrowserRouter>
+
   );
 }
 

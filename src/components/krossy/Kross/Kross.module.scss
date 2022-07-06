@@ -1,0 +1,40 @@
+.kross{
+    width: 260px;
+    display: grid;
+    justify-content: center;
+    
+    border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.349);
+    margin: 10px;
+&:hover{
+    box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.411);
+}
+h4{
+    width: 170px;
+    display: flex;
+    justify-content: flex-start;
+    text-align: start;
+    font-weight: 400;
+    font-size: 16px;
+}
+.imga{
+    margin-top: 20px;
+    display: flex;
+    text-align: start;
+}
+p{
+    display: flex;
+    text-align: start;
+    font-size: 22px;
+    color: #BDBDBD;
+}
+.mani{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    line-height: 1px;
+}
+}
+
